@@ -5,7 +5,7 @@ import cv2                 # working with, mainly resizing, images
 import numpy as np         # dealing with arrays
 import os                  # dealing with directories
 from random import shuffle # mixing up or currently ordered data that might lead our network astray in training.
-from tqdm import tqdm      # a nice pretty percentage bar for tasks. Thanks to viewer Daniel BA1/4hler for this suggestion
+from tqdm import tqdm      
 TRAIN_DIR = 'train/train'
 TEST_DIR = 'test/test'
 IMG_SIZE = 50
@@ -155,43 +155,3 @@ model.fit({'input': X}, {'targets': Y}, n_epoch=8, validation_set=({'input': tes
     snapshot_step=40, show_metric=True, run_id=MODEL_NAME)
 
 model.save(MODEL_NAME)
-
-
-
-
-"""Next, a convolutional layer with 32 filters and stride = 8 is created. Stride is the number of pixels shifts over the input matrix. When the stride is 1 then we move the filters to 1 pixel at a time.  The activation function is ReLU. Right after that, a max pool layer is added.
-That same trickery is repeated again with 64 filters.
-A convolution is how the input is modified by a filter. In convolutional networks, multiple filters are taken to slice through the image and map them one by one and learn different portions of a
-n input image. ... Each time a match is found, it is mapped out onto an output image.“filters” what they're referring to is the learned weights of the convolutions.
-
-
-The tf.reshape does not change the order of or the total number of elements
-in the tensor, and so it can reuse the underlying data buffer. This makes it a fast operation independent of how big of a tensor it is operating on.
-Next, a fully-connected layer with 1024 neurons is added. Finally, a dropout layer with keep probability of 0.8 is used to finish our model
-The reason why softmax is useful is because it converts the output of the last layer in your neural network into what is essentially a probability distribution..
-
-epoch = no of iteration
-
-
-Convolutions have been used for a long time in image processing to blur and
-sharpen images, and perform other operations, such as, enhance edges and emboss.
- The area where the filter is on the image is called the receptive field.
-
- We use Adam as optimizer with learning rate set to 0.001
- . Our loss function is categorical cross entropy.
- Finally, we train our Deep Neural Net for 10 epochs.
-
-Working: Conv2D filters extend through the three channels in an image (Red, Green, and Blue). The filters may be different for each channel too.
-After the convolutions are performed individually for each channels, they are added up to get the final convoluted image.
-The output of a filter after a convolution operation is called a feature map."""
-
-
-
-
-
-
-
-
-
-
-        
